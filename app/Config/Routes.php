@@ -35,5 +35,9 @@ $routes->get('get-cost', 'TransaksiController::getCost', ['filter' => 'auth']);
 
 $routes->get('profile', 'Home::profile', ['filter' => 'auth']);
 
+$routes->get('dashboard-toko', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('dashboard-toko/cetak', 'Dashboard::cetak', ['filter' => 'auth']);
 
 $routes->resource('api', ['controller' => 'apiController']);
+$routes->get('register', 'AuthController::register');
+$routes->post('register', 'AuthController::register');

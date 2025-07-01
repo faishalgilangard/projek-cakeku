@@ -20,6 +20,12 @@
         if (session()->get('role') == 'admin') {
         ?>
             <li class="nav-item">
+                <a class="nav-link <?php echo (uri_string() == 'dashboard-toko') ? "" : "collapsed" ?>" href="dashboard-toko">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard Toko</span>
+                </a>
+            </li><!-- End Dashboard Toko Nav -->
+            <li class="nav-item">
                 <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="produk">
                     <i class="bi bi-receipt"></i>
                     <span>produk</span>
