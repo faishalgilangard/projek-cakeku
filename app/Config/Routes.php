@@ -45,7 +45,10 @@ $routes->get('dashboard-toko', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('dashboard-toko/cetak', 'Dashboard::cetak', ['filter' => 'auth']);
 $routes->post('dashboard-toko/update-status/(:num)', 'Dashboard::updateStatus/$1', ['filter' => 'auth']);
 $routes->post('dashboard-toko/delete/(:num)', 'Dashboard::delete/$1', ['filter' => 'auth']);
+$routes->get('dashboard-toko/delete/(:num)', 'Dashboard::delete/$1', ['filter' => 'auth']);
 
 $routes->resource('api', ['controller' => 'apiController']);
 $routes->get('register', 'AuthController::register');
 $routes->post('register', 'AuthController::register');
+$routes->get('laporan', 'LaporanController::index', ['filter' => 'auth']);
+$routes->get('laporan/cetak', 'LaporanController::cetak', ['filter' => 'auth']);

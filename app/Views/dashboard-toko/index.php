@@ -51,6 +51,9 @@
     <div class="card p-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="fw-bold mb-0">Riwayat Transaksi</h5>
+            <div>
+                <a href="<?= base_url('laporan/cetak') ?>" target="_blank" class="btn btn-success btn-sm me-2"><i class="ri-printer-line"></i> Cetak Laporan</a>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-striped align-middle">
@@ -101,7 +104,7 @@
                                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#detailModal-<?= $trx['id'] ?>">
                                     <i class="ri-eye-line"></i> Detail
                                 </button>
-                                <a href="<?= base_url('dashboard-toko/cetak?id=' . $trx['id']) ?>" class="btn btn-sm btn-warning">Cetak</a>
+                                <a href="<?= base_url('dashboard-toko/delete/' . $trx['id']) ?>" class="btn btn-sm btn-danger ms-1" onclick="return confirm('Hapus transaksi ini?')"><i class="ri-delete-bin-2-line"></i> Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
