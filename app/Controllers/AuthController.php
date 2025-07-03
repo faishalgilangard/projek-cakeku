@@ -20,7 +20,14 @@ class AuthController extends BaseController
         if ($this->request->getPost()) {
             $rules = [
                 'username' => 'required|min_length[6]',
-                'password' => 'required|min_length[7]|numeric',
+                'password' => [
+                    'label' => 'Password',
+                    'rules' => 'required|min_length[7]|regex_match[/^(?=.*[a-zA-Z])(?=.*[0-9]).+$/]',
+                    'errors' => [
+                        'regex_match' => 'Password harus mengandung huruf dan angka.'
+                    ]
+                ]
+
             ];
 
             if ($this->validate($rules)) {
@@ -65,7 +72,14 @@ class AuthController extends BaseController
             $rules = [
                 'username' => 'required|min_length[6]|is_unique[user.username]',
                 'email' => 'required|valid_email|is_unique[user.email]',
-                'password' => 'required|min_length[7]'
+                'password' => [
+                    'label' => 'Password',
+                    'rules' => 'required|min_length[7]|regex_match[/^(?=.*[a-zA-Z])(?=.*[0-9]).+$/]',
+                    'errors' => [
+                        'regex_match' => 'Password harus mengandung huruf dan angka.'
+                    ]
+                ]
+
             ];
             if ($this->validate($rules)) {
                 $data = [

@@ -17,8 +17,8 @@ if (uri_string() != "") {
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="<?= base_url() ?>NiceAdmin/assets/img/favicon.png" rel="icon">
-    <link href="<?= base_url() ?>NiceAdmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="<?= base_url() ?>img/icon_cakeku.ico" rel="icon">
+    <link href="<?= base_url() ?>img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">

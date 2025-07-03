@@ -3,54 +3,21 @@
 namespace App\Controllers;
 
 use App\Models\ProductModel;
-use App\Models\TransactionModel;
-use App\Models\TransactionDetailModel;
 
 class Home extends BaseController
 {
-    protected $product;
-    protected $transaction;
-    protected $transaction_detail;
-
-    function __construct()
+    public function index()
     {
-        helper('form');
-        helper('number');
-        $this->product = new ProductModel();
-        $this->transaction = new TransactionModel();
-        $this->transaction_detail = new TransactionDetailModel();
-    }
+        $productModel = new ProductModel();
+        $data['featured_products'] = $productModel->findAll(6); // ambil 6 produk terbaru/unggulan
 
-    public function index(): string
-    {
-        $product = $this->product->findAll();
-        $data['product'] = $product;
+        // Data statistik bisnis (contoh)
+        $data['stats'] = [
+            'total_orders' => 128,
+            'monthly_sales' => 'Rp 12.500.000',
+            'popular_product' => 'Kue Brownis'
+        ];
 
-        return view('v_home', $data);
-    }
-
-    public function profile()
-    {
-        $username = session()->get('username');
-        $data['username'] = $username;
-
-        $buy = $this->transaction->where('username', $username)->findAll();
-        $data['buy'] = $buy;
-
-        $product = [];
-
-        if (!empty($buy)) {
-            foreach ($buy as $item) {
-                $detail = $this->transaction_detail->select('transaction_detail.*, product.nama, product.harga, product.foto')->join('product', 'transaction_detail.product_id=product.id')->where('transaction_id', $item['id'])->findAll();
-
-                if (!empty($detail)) {
-                    $product[$item['id']] = $detail;
-                }
-            }
-        }
-
-        $data['product'] = $product;
-
-        return view('v_profile', $data);
+        return view('home', $data);
     }
 }

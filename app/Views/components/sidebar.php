@@ -11,6 +11,13 @@
         </li><!-- End Home Nav -->
 
         <li class="nav-item">
+            <a class="nav-link <?php echo (uri_string() == 'katalog') ? "" : "collapsed" ?>" href="katalog">
+                <i class="bi bi-card-list"></i>
+                <span>Katalog</span>
+            </a>
+        </li><!-- End Katalog Nav -->
+
+        <li class="nav-item">
             <a class="nav-link <?php echo (uri_string() == 'keranjang') ? "" : "collapsed" ?>" href="keranjang">
                 <i class="bi bi-cart-check"></i>
                 <span>Keranjang</span>
@@ -35,9 +42,9 @@
         }
         ?>
         <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == 'profile') ? "" : "collapsed" ?>" href="profile">
+            <a class="nav-link <?php echo (uri_string() == 'history') ? "" : "collapsed" ?>" href="history">
                 <i class="bi bi-person"></i>
-                <span>Profile</span>
+                <span>History</span>
             </a>
         </li><!-- End Profile Nav -->
 

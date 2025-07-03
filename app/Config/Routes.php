@@ -5,11 +5,17 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('/', 'Home::index');
+
 $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::login');
 $routes->get('logout', 'AuthController::logout');
 
-$routes->get('/', 'Home::index', ['filter' => 'auth']);
+$routes->get('katalog', 'Katalog::index', ['as' => 'katalog', 'filter' => 'auth']);
+
+$routes->get('profile', 'UserController::profile');
+$routes->post('profile/update', 'UserController::updateProfile');
+
 
 $routes->group('produk', ['filter' => 'auth'], function ($routes) {
     $routes->get('', 'ProdukController::index');
@@ -33,10 +39,12 @@ $routes->post('buy', 'TransaksiController::buy', ['filter' => 'auth']);
 $routes->get('get-location', 'TransaksiController::getLocation', ['filter' => 'auth']);
 $routes->get('get-cost', 'TransaksiController::getCost', ['filter' => 'auth']);
 
-$routes->get('profile', 'Home::profile', ['filter' => 'auth']);
+$routes->get('history', 'Katalog::history', ['filter' => 'auth']);
 
 $routes->get('dashboard-toko', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('dashboard-toko/cetak', 'Dashboard::cetak', ['filter' => 'auth']);
+$routes->post('dashboard-toko/update-status/(:num)', 'Dashboard::updateStatus/$1', ['filter' => 'auth']);
+$routes->post('dashboard-toko/delete/(:num)', 'Dashboard::delete/$1', ['filter' => 'auth']);
 
 $routes->resource('api', ['controller' => 'apiController']);
 $routes->get('register', 'AuthController::register');

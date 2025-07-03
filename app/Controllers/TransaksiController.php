@@ -173,7 +173,7 @@ class TransaksiController extends BaseController
 
             $this->cart->destroy();
 
-            return redirect()->to(base_url());
+            return redirect()->route('katalog')->with('success', 'Pesanan berhasil dibuat silakan cek keranjang');
         }
     }
 }

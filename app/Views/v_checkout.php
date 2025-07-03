@@ -71,7 +71,7 @@
             <!-- End Default Table Example -->
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Buat Pesanan</button>
+            <button type="submit" class="btn btn-primary" onclick="window.open('https://sociabuzz.com/cakeku/tribe', '_blank')">Buat Pesanan</button>
         </div>
         </form><!-- Vertical Form -->
     </div>

@@ -21,7 +21,7 @@ $password = [
                 <div class="d-flex justify-content-center py-4">
                     <a href="index.html" class="logo d-flex align-items-center w-auto">
                         <img src="assets/img/logo.png" alt="">
-                        <span class="d-none d-lg-block">Warung Ical</span>
+                        <span class="d-none d-lg-block">Cakeku</span>
                     </a>
                 </div><!-- End Logo -->
 
@@ -70,6 +70,9 @@ $password = [
                         <?= form_close() ?>
                         <div class="col-12 mt-2 text-center">
                             <a href="<?= base_url('register') ?>">Belum punya akun? Daftar di sini</a>
+                        </div>
+                        <div class="col-12 mt-2 text-center">
+                            <a href="<?= base_url() ?>">Home</a>
                         </div>
 
                     </div>
